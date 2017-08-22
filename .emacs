@@ -5,6 +5,8 @@
 (require 'package)
 (add-to-list 'package-archives '("melpa"."http://melpa.org/packages/"))
 (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
+(require 'package)
+>>>>>>> b2ea39bbddb1f188fd100f435578f0ed40e1574d
 
 ;; Refresh package list 
 (defun require-package (package &optional min-version no-refresh)
@@ -27,6 +29,10 @@ re-downloaded in order to locate PACKAGE."
 ;;    (load-theme 'spolsky t)
 (load-theme 'atom-dark t)
 ;;)
+(if (display-graphic-p)
+    (load-theme 'spolsky t)
+  (load-theme 'atom-dark t)
+)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -159,6 +165,10 @@ re-downloaded in order to locate PACKAGE."
  ;;'(default ((t (:family "fixed" :foundry "misc" :slant normal :weight normal :height 135 :width normal)))))
 
 
+;;add some new source repositories
+(require 'package)
+(add-to-list 'package-archives '("melpa"."http://melpa.org/packages/"))
+(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
 
 ;; set the font
 ;; (add-to-list 'default-frame-alist  '(font ."DejaVu Sans Mono-10"))
@@ -280,6 +290,8 @@ re-downloaded in order to locate PACKAGE."
 ;(setq socks-noproxy '("127.0.0.1"))
 ;(setq socks-server '("Default server" "127.0.0.1" 1080 5))
 ;(setq url-gateway-method 'socks)
+(setenv "http_proxy"  nil)
+(setenv "https_proxy" nil)
 ;;grammer checker 
 (require 'langtool)
 (setq langtool-language-tool-jar "~/.emacs.d/LanguageTool-3.6/languagetool-commandline.jar")
@@ -589,3 +601,4 @@ nn            (package-menu-mode)
     ))
 
 (evil-mode t)
+
