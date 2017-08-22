@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: markdown-title
+# key: mbt
+# --
+<div style="color:#369">$0</div>
