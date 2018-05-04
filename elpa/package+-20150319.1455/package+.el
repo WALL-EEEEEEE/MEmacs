@@ -39,7 +39,7 @@
 
 ;; Declares a manifest of packages that should be installed on this
 ;; system, installing any missing packages and removing any installed
-;; packages that are not in the manifest.
+;; packages that are nonnt in the manifest.
 ;;
 ;; This makes it easy to keep a list of packages under version control
 ;; and replicated across all your environments, without having to have
