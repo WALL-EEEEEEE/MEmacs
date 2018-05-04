@@ -4,9 +4,9 @@
 ;; You may delete these explanatory comments.
 (require 'package)
 (add-to-list 'package-archives '("melpa"."http://melpa.org/packages/"))
-(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
-(require 'package)
->>>>>>> b2ea39bbddb1f188fd100f435578f0ed40e1574d
+(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/"))
+
+(setq ring-bell-function 'ignore)
 
 ;; Refresh package list 
 (defun require-package (package &optional min-version no-refresh)
@@ -29,10 +29,6 @@ re-downloaded in order to locate PACKAGE."
 ;;    (load-theme 'spolsky t)
 (load-theme 'atom-dark t)
 ;;)
-(if (display-graphic-p)
-    (load-theme 'spolsky t)
-  (load-theme 'atom-dark t)
-)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -110,7 +106,7 @@ re-downloaded in order to locate PACKAGE."
  '(org-export-backends (quote (ascii html icalendar latex man md odt)))
  '(package-selected-packages
    (quote
-    (fasd bash-completion simpleclip helm-dash helm-cscope bongo which-key phpcbf "package" package "test" "test" function-args mode-icons powerline-evil ace-jump-buffer ace-jump-mode java-snippets jdee java-imports company-jedi ggtags flatui-theme subatomic-theme atom-dark-theme helm-gtags icicles imenu-list helm-swoop ac-php go-mode php-auto-yasnippets elisp-format ac-helm helm-flycheck helm-circe langtool sx helm-company helm-package helm-zhihu-daily helm-ag helm-projectile lua-mode on-parens smartparens highlight-parentheses clocker ace-flyspell paradox dummyparens atom-one-dark-theme yasnippet "yasnippet" "Yasnippet" " d" auto-package-update diff-hl diffview dracula-theme darcula-theme major-mode-icons markdown-edit-indirect markdown-toc orgtbl-aggregate orgtbl-ascii-plot ox-asciidoc ox-html5slide ox-impress-js ox-ioslide ox-mediawiki ox-pukiwiki ox-twiki package+ vimrc-mode linum-relative ox-qmd org-ac org-agenda-property org-alert org-attach-screenshot org-autolist org-board org-bookmark-heading org-caldav org-capture-pop-frame org-clock-today org-commentary org-doing org-download org-easy-img-insert org-fstree org2blog org2issue ox-twbs outorg ox-pandoc org-evil org-beautify-theme org-bullets org-preview-html evil evil-anzu evil-args evil-avy evil-cleverparens evil-colemak-basics evil-colemak-minimal evil-commentary evil-dvorak evil-easymotion evil-ediff evil-embrace evil-escape evil-exchange evil-extra-operator evil-find-char-pinyin evil-god-state evil-iedit-state evil-indent-plus evil-indent-textobject evil-leader evil-lisp-state evil-lispy evil-magit evil-mark-replace evil-matchit evil-mc evil-mc-extras evil-mu4e evil-multiedit evil-nerd-commenter evil-numbers evil-opener evil-org evil-paredit evil-quickscope evil-rails evil-replace-with-register evil-rsi evil-search-highlight-persist evil-smartparens evil-snipe evil-space evil-surround evil-swap-keys evil-tabs evil-terminal-cursor-changer evil-text-object-python evil-textobj-anyblock evil-textobj-column evil-tutor evil-tutor-ja evil-vimish-fold evil-visual-mark-mode evil-visual-replace evil-visualstar evm arjen-grey-theme xterm-color zenburn-theme blackboard-theme 2048-game ecb sr-speedbar tabbar projectile neotree ace-window fcitx w3m google-translate moe-theme molokai-theme monochrome-theme monokai-theme sublime-themes ## markdown-mode nmarkdown-mode+ company-c-headers company-php company-web ztree)))
+    (yaml-mode org2jekyll ssh-deploy pass fasd bash-completion simpleclip helm-dash helm-cscope bongo which-key phpcbf "package" package "test" "test" function-args mode-icons powerline-evil ace-jump-buffer ace-jump-mode java-snippets jdee java-imports company-jedi ggtags flatui-theme subatomic-theme atom-dark-theme helm-gtags icicles imenu-list helm-swoop ac-php go-mode php-auto-yasnippets elisp-format ac-helm helm-flycheck helm-circe langtool sx helm-company helm-package helm-zhihu-daily helm-ag helm-projectile lua-mode on-parens smartparens highlight-parentheses clocker ace-flyspell paradox dummyparens atom-one-dark-theme yasnippet "yasnippet" "Yasnippet" " d" auto-package-update diff-hl diffview dracula-theme darcula-theme major-mode-icons markdown-edit-indirect markdown-toc orgtbl-aggregate orgtbl-ascii-plot ox-asciidoc ox-html5slide ox-impress-js ox-ioslide ox-mediawiki ox-pukiwiki ox-twiki package+ vimrc-mode linum-relative ox-qmd org-ac org-agenda-property org-alert org-attach-screenshot org-autolist org-board org-bookmark-heading org-caldav org-capture-pop-frame org-clock-today org-commentary org-doing org-download org-easy-img-insert org-fstree org2blog org2issue ox-twbs outorg ox-pandoc org-evil org-beautify-theme org-bullets org-preview-html evil evil-anzu evil-args evil-avy evil-cleverparens evil-colemak-basics evil-colemak-minimal evil-commentary evil-dvorak evil-easymotion evil-ediff evil-embrace evil-escape evil-exchange evil-extra-operator evil-find-char-pinyin evil-god-state evil-iedit-state evil-indent-plus evil-indent-textobject evil-leader evil-lisp-state evil-lispy evil-magit evil-mark-replace evil-matchit evil-mc evil-mc-extras evil-mu4e evil-multiedit evil-nerd-commenter evil-numbers evil-opener evil-org evil-paredit evil-quickscope evil-rails evil-replace-with-register evil-rsi evil-search-highlight-persist evil-smartparens evil-snipe evil-space evil-surround evil-swap-keys evil-tabs evil-terminal-cursor-changer evil-text-object-python evil-textobj-anyblock evil-textobj-column evil-tutor evil-tutor-ja evil-vimish-fold evil-visual-mark-mode evil-visual-replace evil-visualstar evm arjen-grey-theme xterm-color zenburn-theme blackboard-theme 2048-game ecb sr-speedbar tabbar projectile neotree ace-window fcitx w3m google-translate moe-theme molokai-theme monochrome-theme monokai-theme sublime-themes ## markdown-mode nmarkdown-mode+ company-c-headers company-php company-web ztree)))
  '(paradox-automatically-star t)
  '(pdf-view-midnight-colors (quote ("#DCDCCC" . "#383838")))
  '(phpcbf-executable "/usr/bin/phpcbf")
@@ -345,7 +341,7 @@ re-downloaded in order to locate PACKAGE."
         ;; Generate the Package Menu.
         (let ((buf (get-buffer-create "*Packages*")))
           (with-current-buffer buf
-nn            (package-menu-mode)
+            (package-menu-mode)
             (set (make-local-variable 'package-menu--new-package-list)
                  new-packages)
             (package-menu--generate nil t))
@@ -601,4 +597,4 @@ nn            (package-menu-mode)
     ))
 
 (evil-mode t)
-
+(put 'narrow-to-region 'disabled nil)
